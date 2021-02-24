@@ -18,4 +18,4 @@
 > func make(t Type, size ...IntegerType) Type
 > ```
 >
-> make() 只能用于 chan ，map ，slice 的内存创建，返回的是类型本身，因为这三个类型本身就是引用类型。
+> make() 只能用于 `chan` ，map ，slice 的内存创建，返回的是类型本身，因为这三个类型本身就是引用类型。
