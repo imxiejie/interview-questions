@@ -13,5 +13,6 @@
 > ```c
 > #include <unistd.h>
 >
+> // 若成功，返回`0`，若出错，返回`-1`
 > int pipe(int fd[2]);
 > ```
