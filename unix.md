@@ -23,3 +23,19 @@
 >
 > - 当读（read）一个写端已被关闭的管道时，在所有数据都被读取后，read 返回 0，表示文件结束。
 > - 当写（write）一个读端已被关闭的管道，则产生信号 SIGPIPE。
+>
+> `popen` 和 `pclose`
+>
+> ```c
+> #include <stdio.h>
+>
+> // 若成功，返回文件指针；若出错，返回 NULL
+> FILE *popen(const char *cmdstring, const char *type);
+>
+> // 若成功，返回 cmdstring 的终止状态；若出错，返回 -1
+> int pclose(FILE *fp);
+> ```
+>
+> 函数`popen`先执行`fork`，然后调用`exec`执行`cmdstring`，并且返回一个标准 I/O 文件指针。
+> 如果`type`是`"r"`，则文件指针连接到`cmdstring`的标准输出。
+> 如果`type`是`"w"`，则文件指针连接到`cmdstring`的标准输入。
